@@ -1,5 +1,5 @@
 require 'test/unit'
-require_relative "urlshortener"
+require_relative "../urlshortener"
 
 class MyTest < Test::Unit::TestCase
 
@@ -20,7 +20,6 @@ class MyTest < Test::Unit::TestCase
     assert_equal("HE3E", change_base(593, alphabet)) # 593 -> 1505 in base 7
     assert_equal("$$H3", change_base(791, alphabet)) # 791 -> 2210 in base 7
     assert_equal("$3iiDiHW$", change_base(12345678, alphabet)) # 12345678 -> 206636142 in base 7
-
   end
 
 
