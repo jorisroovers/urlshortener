@@ -1,3 +1,4 @@
+require "redis"
 $alphabet = "0123456789abcdefghijklmnopqrstuvwzxyABCDEFGHIJKLMNOPQRSTUVWXYZ$%"
 
 
@@ -16,4 +17,10 @@ def change_base(num, alphabet=$alphabet)
   end
   return result
 
+end
+
+if __FILE__ == $0
+  redis = Redis.new(:host => "localhost")
+  redis.set("test", "test123")
+  puts redis.get("test")
 end

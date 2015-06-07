@@ -3,3 +3,11 @@
 Very simple urlshortener service implemented in Ruby.
 
 Primarily for personal learning purposes.
+
+To get started:
+```bash
+vagrant up
+vagrant ssh
+ruby urlshortener.rb
+rake # to run tests
+```
