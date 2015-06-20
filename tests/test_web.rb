@@ -12,8 +12,8 @@ class WebTest < Test::Unit::TestCase
   end
 
   def test_post_url
+    $redis = MockRedis.new
     post "/", :longurl => "foobar"
-    puts last_response.body
     assert last_response.body.include?('foobar')
   end
 

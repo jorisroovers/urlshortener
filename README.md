@@ -21,6 +21,11 @@ rerun "ruby web.rb"
 # Point your host machine to http://localhost:4567
 ```
 
+Managing the redis server
+```bash
+sudo /etc/init.d/redis_6379 start|stop|restart
+```
+
 ## Ideas ##
 In no particular order:
 - Management backend
