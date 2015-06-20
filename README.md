@@ -4,10 +4,26 @@ Very simple urlshortener service implemented in Ruby.
 
 Primarily for personal learning purposes.
 
-To get started:
+## Getting Started ##
+
+Installation
 ```bash
 vagrant up
 vagrant ssh
-ruby urlshortener.rb
-rake # to run tests
 ```
+Running tests
+```bash
+rake
+```
+Running the development server (with automatic reload)
+```bash
+rerun "ruby web.rb"
+# Point your host machine to http://localhost:4567
+```
+
+## Ideas ##
+In no particular order:
+- Management backend
+- URL access counts
+- RSpec tests
+- Vagrant box provisioning using Ansible

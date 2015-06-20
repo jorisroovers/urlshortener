@@ -37,9 +37,3 @@ class URLShortener
     return @redis.get($URL_KEY_PREFIX + short_url)
   end
 end
-
-if __FILE__ == $0
-  redis = Redis.new(:host => "localhost")
-  shortener = URLShortener.new(redis)
-  puts shortener.store_url("http://google.com")
-end

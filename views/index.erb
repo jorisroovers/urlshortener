@@ -1,0 +1,20 @@
+<html>
+<head>
+  <title>URL Shortener</title>
+</head>
+<body>
+<h1>URL Shortener</h1>
+
+<form method="post" action="/">
+  <input type="text" id="longurl" name="longurl"/>
+  <button>Shorten it!</button>
+</form>
+<% if defined?(shorturl) %>
+    <div id="shorturl-container">
+      <div id="shorturl"><%= shorturl %></div>
+      <div id="longurl">=> <%= longurl %></div>
+    </div>
+<% end %>
+
+</body>
+</html>

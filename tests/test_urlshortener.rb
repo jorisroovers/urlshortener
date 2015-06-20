@@ -2,7 +2,7 @@ require 'test/unit'
 require 'mock_redis'
 require_relative "../urlshortener"
 
-class MyTest < Test::Unit::TestCase
+class URLShortenerTest < Test::Unit::TestCase
 
   def test_store_retrieve_url()
     mockredis = MockRedis.new

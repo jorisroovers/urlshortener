@@ -4,6 +4,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.box = "ubuntu/trusty64"
   config.vm.network :forwarded_port, guest: 6379, host: 6379
+  config.vm.network :forwarded_port, guest: 4567, host: 4567
 
   config.vm.provider :virtualbox do |vbox|
     vbox.customize ["modifyvm", :id, "--memory", 1024]
