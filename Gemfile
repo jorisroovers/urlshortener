@@ -6,4 +6,5 @@ gem "redis"
 
 group :test do
   gem "test-unit"
+  gem "mock_redis"
 end

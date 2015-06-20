@@ -1,7 +1,26 @@
 require 'test/unit'
+require 'mock_redis'
 require_relative "../urlshortener"
 
 class MyTest < Test::Unit::TestCase
+
+  def test_store_retrieve_url()
+    mockredis = MockRedis.new
+    shortener = URLShortener.new(mockredis)
+
+    # simple URL
+    short_url = shortener.store_url("foobar")
+    original_url = shortener.retrieve_url(short_url)
+    assert_equal("1", short_url)
+    assert_equal("foobar", original_url)
+
+    # set the $URL_COUNTER_KEY to something bigger
+    mockredis.set($URL_COUNTER_KEY, 51876789)
+    short_url = shortener.store_url("foobar2")
+    original_url = shortener.retrieve_url(short_url)
+    assert_equal("35VeS", short_url)
+    assert_equal("foobar2", original_url)
+  end
 
   def test_change_base()
     # Do a test with a default hex alphabet
@@ -21,6 +40,5 @@ class MyTest < Test::Unit::TestCase
     assert_equal("$$H3", change_base(791, alphabet)) # 791 -> 2210 in base 7
     assert_equal("$3iiDiHW$", change_base(12345678, alphabet)) # 12345678 -> 206636142 in base 7
   end
-
 
 end
